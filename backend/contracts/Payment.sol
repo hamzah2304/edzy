@@ -8,63 +8,82 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract English01 is ERC721, ERC721URIStorage, Pausable, AccessControl, ERC721Burnable {
-    using Counters for Counters.Counter;
+contract Payment {
 
-    bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
-    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
-    Counters.Counter private _tokenIdCounter;
+    uint256 public lessonDate;
+    uint256 public withdrawalLimit;
+    uint256 public lessonDuration;
+    address payable public tutor;
+    address payable public tutee;
+    uint256 public lessonCost;
+    uint256 public releaseTime;
 
-    constructor() ERC721("English01", "ENG01") {
-        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(PAUSER_ROLE, msg.sender);
-        _grantRole(MINTER_ROLE, msg.sender);
+    //add link ID/address as a string
+
+    mapping(address => uint256) public balances;
+
+    //events necessary to track the payments
+    event Deposit(address indexed _from, uint256 _value);
+    event Release(address indexed _to, uint256 _value);
+    event Withdrawal(address indexed _to, uint256 _value);
+    event LinkRelease(address indexed _to, string _value); //link release event
+
+    //defining the variables
+    constructor(address payable _tutor, address payable _tutee, uint256 _lessonCost, uint256 _releaseTime, uint256 _lessonDate, uint _lessonDuration) public payable {
+        tutor = _tutor;
+        tutee = _tutee;
+        lessonCost = _lessonCost;
+        lessonDate = _lessonDate;
+        lessonDuration = _lessonDuration;
+        releaseTime = lessonDate + lessonDuration;
+        balances[tutee] = msg.value;
+        //tutee = msg.sender; - since the initiator is the tutee always 
+        //add link 
     }
 
-    function pause() public onlyRole(PAUSER_ROLE) {
-        _pause();
+    //initial deposition of funds by the tutee
+    function depositFunds() public payable {
+        require(msg.sender == tutee, "Only tutee can deposit funds");
+        require(msg.value == lessonCost, "Incorrect deposit amount");
+        balances[tutee] += msg.value;
+        emit Deposit(msg.sender, msg.value);
     }
 
-    function unpause() public onlyRole(PAUSER_ROLE) {
-        _unpause();
+    //there is a possibility of withdrawal up until 12 hr prior to the session 
+    function withdrawFunds() public {
+        require(msg.sender == tutee, "Only tutee can withdraw funds before release time");
+        require(block.timestamp < lessonDate - 12 hours, "Funds can no longer be withdrawn");
+        uint256 amount = balances[tutee];
+        balances[tutee] = 0;
+        tutee.transfer(amount);
+        emit Withdrawal(tutee, amount);
+    }
+  
+    //funds are released at agreed upon time to the tutor
+    function releaseFunds() public {
+        require(block.timestamp >= releaseTime, "Funds cannot be released yet");
+        require(msg.sender == tutor, "Only tutor can release funds");
+        uint256 amount = balances[tutee];
+        balances[tutee] = 0;
+        tutor.transfer(amount);
+        emit Release(tutor, amount);
     }
 
-    function safeMint(address to, string memory uri) public onlyRole(MINTER_ROLE) {
-        uint256 tokenId = _tokenIdCounter.current();
-        _tokenIdCounter.increment();
-        _safeMint(to, tokenId);
-        _setTokenURI(tokenId, uri);
+    //the link is released after the funds are deposited and after the withdrawal time has passed
+    //this ensures there is no access unless payment is locked 
+    function sendMeetingId() {
+        require(block.timestamp > lessonDate - 12 hours, "Link will be generated 12hr prior to the lesson");
+        require(msg.sender == tutee, "Only tutee can acess the link");
+
+        //a link can then be generated. currently, the meetings are started immediately after 
+        //the token gating is complete. 
+        //for demo purposes, this will not be implimented within huddle01.
+
+        emit LinkRelease(tutee, roomId)
+
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
-        internal
-        whenNotPaused
-        override
-    {
-        super._beforeTokenTransfer(from, to, tokenId, batchSize);
-    }
 
-    // The following functions are overrides required by Solidity.
 
-    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
-        super._burn(tokenId);
-    }
 
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        override(ERC721, ERC721URIStorage)
-        returns (string memory)
-    {
-        return super.tokenURI(tokenId);
-    }
-
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC721, AccessControl)
-        returns (bool)
-    {
-        return super.supportsInterface(interfaceId);
-    }
 }

@@ -67,20 +67,20 @@ export default function Navbar() {
           <div className='flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5'>
             <a
               className='font-medium text-blue-500'
-              href='#'
-              aria-current='page'
+              href='learn'
+              //aria-current='page'
             >
               LEARN
             </a>
             <a
               className='font-medium text-white hover:text-gray-400 dark:text-white dark:hover:text-gray-500'
-              href='#'
+              href='teach'
             >
               TEACH
             </a>
             <a
               className='font-medium text-gray-600 hover:text-gray-400 dark:text-white dark:hover:text-gray-500'
-              href='#'
+              href='profile'
             >
               PROFILE
             </a>

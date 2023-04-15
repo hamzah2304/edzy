@@ -7,64 +7,37 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract English01 is ERC721, ERC721URIStorage, Pausable, AccessControl, ERC721Burnable {
-    using Counters for Counters.Counter;
+//basic token gating based on the NFT ownership. if the tutee pocessess the NFT a new meeting can be created
+contract TokenGating is ERC721{
 
-    bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
-    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
-    Counters.Counter private _tokenIdCounter;
+    string public roomId;
+    string public contractAddress;
+    mapping(address => bool) public hasAccess;
 
-    constructor() ERC721("English01", "ENG01") {
-        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(PAUSER_ROLE, msg.sender);
-        _grantRole(MINTER_ROLE, msg.sender);
+    event AccessGranted(address indexed account);
+    event ChatRoomCreated(string _link);
+
+    constructor(string memory _roomId, string memory _contractAddress) ERC721("NFT Token Gating", "TGN") {
+        roomId = _roomId;
+        contractAddress = _contractAddress;
+    }
+    
+    function grantAccess(address _address) public {
+        require(ownerOf(contractAddress) == msg.sender, "You are not authorized to enter the meeting"); 
+        hasAccess[_address] = true;
+        emit AccessGranted(_address);
     }
 
-    function pause() public onlyRole(PAUSER_ROLE) {
-        _pause();
+    function checkAccess() public view returns (bool) {
+        return hasAccess[msg.sender];
     }
 
-    function unpause() public onlyRole(PAUSER_ROLE) {
-        _unpause();
+    function createChatRoom() public {
+        require(hasAccess[_address] = true, "Meeting cannot be initiated");
+        emit ChatRoomCreated(roomId);
     }
 
-    function safeMint(address to, string memory uri) public onlyRole(MINTER_ROLE) {
-        uint256 tokenId = _tokenIdCounter.current();
-        _tokenIdCounter.increment();
-        _safeMint(to, tokenId);
-        _setTokenURI(tokenId, uri);
-    }
-
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
-        internal
-        whenNotPaused
-        override
-    {
-        super._beforeTokenTransfer(from, to, tokenId, batchSize);
-    }
-
-    // The following functions are overrides required by Solidity.
-
-    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
-        super._burn(tokenId);
-    }
-
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        override(ERC721, ERC721URIStorage)
-        returns (string memory)
-    {
-        return super.tokenURI(tokenId);
-    }
-
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC721, AccessControl)
-        returns (bool)
-    {
-        return super.supportsInterface(interfaceId);
-    }
 }
