@@ -1,16 +1,16 @@
-import { HuddleIframe } from '@huddle01/react-huddle-iframe'
+import { HuddleIframe } from '@huddle01/huddle01-iframe'
 
-const iframeConfig = {
-  roomUrl: 'https://iframe.huddle01.com/123',
-  height: '600px',
-  width: '80%',
-  noBorder: false, // false by default
-}
-
-export default function Frame() {
+export default function Frame({ roomUrl }) {
   return (
     <div>
-      <HuddleIframe config={iframeConfig} />
+      <HuddleIframe
+        config={{
+          roomUrl: roomUrl,
+          height: '600px',
+          width: '100%',
+          noBorder: false, // false by default
+        }}
+      />
     </div>
   )
 }
