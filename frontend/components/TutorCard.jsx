@@ -1,5 +1,6 @@
 import CalendarModal from './CalendarModal'
 import React, { useState } from 'react'
+import English01ABI from '../contracts_abi/English01ABI.json'
 
 export default function TutorCard({ name, subject, description, price, src }) {
   const [showModal, setShowModal] = useState(false)
@@ -41,7 +42,11 @@ export default function TutorCard({ name, subject, description, price, src }) {
                   </button>
                   {/* <div className='flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t'> */}
                   <div class='flex flex-col bg-white border shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]'>
-                    <CalendarModal />
+                    <CalendarModal
+                      nftContractAddress='0x938EADDF2d8c7903616E4Bd5aaed948D13f36b22'
+                      tokenUri='https://ipfs.filebase.io/ipfs/QmcZMwBfYwRfysPyLaJzMk5RwsgXnVz7JDkbh6eRbAfSjJ/QmdeEmVuLKxhy63CfLkt193sYTRHLLCH6qzyghBS27k7uJ'
+                      nftAbi={English01ABI}
+                    />
                   </div>
                 </div>
               </div>

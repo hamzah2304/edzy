@@ -1,0 +1,154 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Escrow",
+  "sourceName": "contracts/Escrow.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Deposit",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "_value",
+          "type": "string"
+        }
+      ],
+      "name": "LinkRelease",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Release",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Withdrawal",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_tutor",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_start_time",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_duration",
+          "type": "uint256"
+        }
+      ],
+      "name": "depositFunds",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "tutorials",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "tutor",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "tutee",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "cost",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "start_time",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "duration",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506102db806100206000396000f3fe6080604052600436106100295760003560e01c80630fc6b7131461002e5780634409a0e814610043575b600080fd5b61004161003c36600461024b565b61009a565b005b34801561004f57600080fd5b5061006361005e36600461028c565b6101fe565b604080516001600160a01b039687168152959094166020860152928401919091526060830152608082015260a00160405180910390f35b6040805160a0810182526001600160a01b038086168252336020830181815234848601818152606086018981526080870189815260008054600181018255908052885160059091027f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e56381018054928a166001600160a01b031993841617905595517f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e564870180549190991691161790965590517f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e565840155517f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e56683015592517f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e5679091015592519192917fe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c916101f09190815260200190565b60405180910390a250505050565b6000818154811061020e57600080fd5b6000918252602090912060059091020180546001820154600283015460038401546004909401546001600160a01b03938416955091909216929085565b60008060006060848603121561026057600080fd5b83356001600160a01b038116811461027757600080fd5b95602085013595506040909401359392505050565b60006020828403121561029e57600080fd5b503591905056fea2646970667358221220e9c73e68f1b9d667e3bbf47e880b381e9e3d03e5698ceda992f11d55bd8ec38a64736f6c63430008090033",
+  "deployedBytecode": "0x6080604052600436106100295760003560e01c80630fc6b7131461002e5780634409a0e814610043575b600080fd5b61004161003c36600461024b565b61009a565b005b34801561004f57600080fd5b5061006361005e36600461028c565b6101fe565b604080516001600160a01b039687168152959094166020860152928401919091526060830152608082015260a00160405180910390f35b6040805160a0810182526001600160a01b038086168252336020830181815234848601818152606086018981526080870189815260008054600181018255908052885160059091027f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e56381018054928a166001600160a01b031993841617905595517f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e564870180549190991691161790965590517f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e565840155517f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e56683015592517f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e5679091015592519192917fe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c916101f09190815260200190565b60405180910390a250505050565b6000818154811061020e57600080fd5b6000918252602090912060059091020180546001820154600283015460038401546004909401546001600160a01b03938416955091909216929085565b60008060006060848603121561026057600080fd5b83356001600160a01b038116811461027757600080fd5b95602085013595506040909401359392505050565b60006020828403121561029e57600080fd5b503591905056fea2646970667358221220e9c73e68f1b9d667e3bbf47e880b381e9e3d03e5698ceda992f11d55bd8ec38a64736f6c63430008090033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
