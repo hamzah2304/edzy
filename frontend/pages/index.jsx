@@ -1,5 +1,5 @@
-import styles from "../styles/Home.module.css";
-import InstructionsComponent from "../components/InstructionsComponent";
+import styles from '../styles/Home.module.css'
+import InstructionsComponent from '../components/InstructionsComponent'
 
 export default function Home() {
   return (
@@ -8,5 +8,5 @@ export default function Home() {
         <InstructionsComponent></InstructionsComponent>
       </main>
     </div>
-  );
+  )
 }
