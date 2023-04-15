@@ -79,6 +79,12 @@ export default function Navbar() {
               TEACH
             </a>
             <a
+              className='font-medium text-white hover:text-gray-400 dark:text-white dark:hover:text-gray-500'
+              href='watch'
+            >
+              UPLOAD
+            </a>
+            <a
               className='font-medium text-gray-600 hover:text-gray-400 dark:text-white dark:hover:text-gray-500'
               href='profile'
             >

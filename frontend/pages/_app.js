@@ -19,6 +19,8 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import MainLayout from "../layout/mainLayout";
 import { useRouter } from "next/router";
+import { LivepeerConfig } from '@livepeer/react';
+import LivepeerClient from '../client/livepeer';
 
 const { chains, provider } = configureChains(
 	[
@@ -64,7 +66,9 @@ function MyApp({ Component, pageProps }) {
 				chains={chains}
 			>
 				<MainLayout>
-					<Component {...pageProps} />
+					<LivepeerConfig client={LivepeerClient}>
+      					<Component {...pageProps} />
+    				</LivepeerConfig>
 				</MainLayout>
 			</RainbowKitProvider>
 		</WagmiConfig>

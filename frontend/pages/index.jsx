@@ -4,12 +4,13 @@ import FindTutor from '../components/FindTutor'
 import TutorCard from '../components/TutorCard'
 import CalendarModal from '../components/CalendarModal'
 
+
 export default function Find() {
   return (
     <div>
       <main className={styles.main}>
         <br />
-        <p className='font-bold text-5xl'>Find the perfect tutor</p>
+        <p className="text-5xl font-bold text-slate-900 text-transparent bg-clip-text bg-gradient-to-r from-[#F63E02] to-[#FCE762]">Find the perfect tutor</p>
         <br />
         <p className='font-semibold text-2xl'>
           Prove your credentials to find the right person for you
