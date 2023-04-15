@@ -34,4 +34,8 @@ contract Escrow {
     tutorials.push(tutorial);
     emit Deposit(msg.sender, msg.value);
   }
+
+  function refundStudent() public {}
+
+  function payTutor() public {}
 }
