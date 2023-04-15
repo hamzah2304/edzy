@@ -10,10 +10,12 @@
     "marketplace": "npx create-web3-dapp marketplace"
   },
   "dependencies": {
+    "@huddle01/huddle01-iframe": "^0.0.9",
     "@rainbow-me/rainbowkit": "^0.12.4",
     "alchemy-sdk": "^2.6.2",
     "next": "13.1.2",
     "react": "18.2.0",
+    "react-calendar": "^4.2.1",
     "react-dom": "18.2.0",
     "react-router-dom": "^6.10.0",
     "wagmi": "^0.12.6"
