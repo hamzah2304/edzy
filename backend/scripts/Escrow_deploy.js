@@ -2,12 +2,12 @@ const hre = require('hardhat')
 const { verify } = require('../helpers/verify')
 
 async function main() {
-  const Contract = await hre.ethers.getContractFactory('English01')
+  const Contract = await hre.ethers.getContractFactory('Escrow')
   const contract = await Contract.deploy()
 
-  await contract.deployed()
+  await contract.deployed(5)
 
-  console.log('English01 deployed to:', contract.address) // 0x938EADDF2d8c7903616E4Bd5aaed948D13f36b22
+  console.log('Escrow deployed to:', contract.address) //0x5FbDB2315678afecb367f032d93F642f64180aa3
 
   await verify(contract.address, [])
 }

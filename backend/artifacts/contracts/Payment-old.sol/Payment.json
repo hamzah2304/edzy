@@ -1,0 +1,240 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Payment",
+  "sourceName": "contracts/Payment-old.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "_tutor",
+          "type": "address"
+        },
+        {
+          "internalType": "address payable",
+          "name": "_tutee",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_lessonCost",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_releaseTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_lessonDate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_lessonDuration",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Deposit",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "_value",
+          "type": "string"
+        }
+      ],
+      "name": "LinkRelease",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Release",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Withdrawal",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "depositFunds",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lessonCost",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lessonDate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lessonDuration",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "payments",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "releaseTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tutee",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tutor",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawalLimit",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052604051610422380380610422833981016040819052610022916100b3565b600380546001600160a01b038089166001600160a01b031992831617909255600480549288169290911691909117905560058490556000829055600281905561006b818361010b565b60065550506004546001600160a01b031660009081526007602052604090203490555061013192505050565b80516001600160a01b03811681146100ae57600080fd5b919050565b60008060008060008060c087890312156100cc57600080fd5b6100d587610097565b95506100e360208801610097565b945060408701519350606087015192506080870151915060a087015190509295509295509295565b6000821982111561012c57634e487b7160e01b600052601160045260246000fd5b500190565b6102e2806101406000396000f3fe6080604052600436106100865760003560e01c80639cfe0ad8116100595780639cfe0ad814610118578063b91d400114610138578063e176114c1461014e578063e2982c2114610164578063e2c41dbc1461019157600080fd5b8063232359cd1461008b57806362fe33d2146100b45780637ddfe78d146100ec57806391278a5d14610102575b600080fd5b34801561009757600080fd5b506100a160055481565b6040519081526020015b60405180910390f35b3480156100c057600080fd5b506003546100d4906001600160a01b031681565b6040516001600160a01b0390911681526020016100ab565b3480156100f857600080fd5b506100a160015481565b34801561010e57600080fd5b506100a160025481565b34801561012457600080fd5b506004546100d4906001600160a01b031681565b34801561014457600080fd5b506100a160065481565b34801561015a57600080fd5b506100a160005481565b34801561017057600080fd5b506100a161017f366004610256565b60076020526000908152604090205481565b61019961019b565b005b60055434146101f05760405162461bcd60e51b815260206004820152601860248201527f496e636f7272656374206465706f73697420616d6f756e740000000000000000604482015260640160405180910390fd5b6004546001600160a01b03166000908152600760205260408120805434929061021a908490610286565b909155505060405134815233907fe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c9060200160405180910390a2565b60006020828403121561026857600080fd5b81356001600160a01b038116811461027f57600080fd5b9392505050565b600082198211156102a757634e487b7160e01b600052601160045260246000fd5b50019056fea2646970667358221220aeed497dcbf84374766e4bcab69dd8d70c1cf0f4cc054a3322e2436f2c6958fd64736f6c63430008090033",
+  "deployedBytecode": "0x6080604052600436106100865760003560e01c80639cfe0ad8116100595780639cfe0ad814610118578063b91d400114610138578063e176114c1461014e578063e2982c2114610164578063e2c41dbc1461019157600080fd5b8063232359cd1461008b57806362fe33d2146100b45780637ddfe78d146100ec57806391278a5d14610102575b600080fd5b34801561009757600080fd5b506100a160055481565b6040519081526020015b60405180910390f35b3480156100c057600080fd5b506003546100d4906001600160a01b031681565b6040516001600160a01b0390911681526020016100ab565b3480156100f857600080fd5b506100a160015481565b34801561010e57600080fd5b506100a160025481565b34801561012457600080fd5b506004546100d4906001600160a01b031681565b34801561014457600080fd5b506100a160065481565b34801561015a57600080fd5b506100a160005481565b34801561017057600080fd5b506100a161017f366004610256565b60076020526000908152604090205481565b61019961019b565b005b60055434146101f05760405162461bcd60e51b815260206004820152601860248201527f496e636f7272656374206465706f73697420616d6f756e740000000000000000604482015260640160405180910390fd5b6004546001600160a01b03166000908152600760205260408120805434929061021a908490610286565b909155505060405134815233907fe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c9060200160405180910390a2565b60006020828403121561026857600080fd5b81356001600160a01b038116811461027f57600080fd5b9392505050565b600082198211156102a757634e487b7160e01b600052601160045260246000fd5b50019056fea2646970667358221220aeed497dcbf84374766e4bcab69dd8d70c1cf0f4cc054a3322e2436f2c6958fd64736f6c63430008090033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
