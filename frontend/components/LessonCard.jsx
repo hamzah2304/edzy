@@ -20,7 +20,7 @@ export default function LessonCard({ subject, description, completion }) {
 
         <a
               className='font-medium text-white hover:text-gray-400 dark:text-white dark:hover:text-gray-500'
-              href='english'
+              href='/learn/english01'
             >
               Choose
             </a>
