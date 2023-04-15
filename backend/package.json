@@ -10,11 +10,12 @@
 		"deploy-local": "npx hardhat run ./scripts/English01_deploy.js --network localhost"
 	},
 	"dependencies": {
-		"dotenv": "^16.0.2",
-		"@openzeppelin/contracts": "^4.7.3"
+		"@openzeppelin/contracts": "^4.7.3",
+		"dotenv": "^16.0.2"
 	},
 	"devDependencies": {
 		"@nomicfoundation/hardhat-toolbox": "^1.0.2",
-		"hardhat": "^2.10.1"
+		"hardhat": "^2.10.1",
+		"prettier": "2.8.7"
 	}
 }

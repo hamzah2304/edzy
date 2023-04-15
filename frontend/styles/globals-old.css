@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* html,
+html,
 body {
   background-color: white;
   font-family: 'Rubik';
@@ -36,4 +36,4 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
   }
-} */
+}
