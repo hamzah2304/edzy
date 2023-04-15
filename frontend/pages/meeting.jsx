@@ -96,7 +96,7 @@ export default function Meeting() {
                     </h3>
                     <button
                       className='p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none'
-                      onClick={() => setSuccessShowModal(false)}
+                      onClick={() => setFailShowModal(false)}
                     >
                       <span className='bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none'>
                         ×
@@ -106,9 +106,9 @@ export default function Meeting() {
                   {/*body*/}
                   <div className='relative p-6 flex-auto'>
                     <p className='my-4 text-slate-500 text-lg leading-relaxed'>
-                      The payment is currently being transferred. Please check
-                      your wallet in 30 seconds to verify the transaction has
-                      been successful. We hope to see you again soon!
+                      The tutor may have ended this tutorial too early. The
+                      payment has been returned to the student. Please contact
+                      support for assistance if you believe this is a mistake.
                     </p>
                   </div>
                   {/*footer*/}
@@ -116,7 +116,7 @@ export default function Meeting() {
                     <button
                       className='text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
                       type='button'
-                      onClick={() => setSuccessShowModal(false)}
+                      onClick={() => setFailShowModal(false)}
                     >
                       Close
                     </button>
