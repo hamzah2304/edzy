@@ -35,7 +35,15 @@ contract Escrow {
     emit Deposit(msg.sender, msg.value);
   }
 
-  function refundStudent() public {}
+  function refundStudent() public {
+    Tutorial memory tutorial = tutorials[tutorials.length - 1];
+    (bool s, ) = tutorial.tutee.call{ value: tutorial.cost }('');
+    require(s);
+  }
 
-  function payTutor() public {}
+  function payTutor() public {
+    Tutorial memory tutorial = tutorials[tutorials.length - 1];
+    (bool s, ) = tutorial.tutor.call{ value: tutorial.cost }('');
+    require(s);
+  }
 }
