@@ -2,6 +2,9 @@
 import styles from '../styles/Meeting.module.css'
 import Frame from '../components/Frame'
 import React, { useState } from 'react'
+import { Contract, Utils } from 'alchemy-sdk'
+import { useAccount, useSigner } from 'wagmi'
+import EscrowABI from '../contracts_abi/EscrowABI.json'
 
 const ROOM_URL = 'https://iframe.huddle01.com/123'
 
@@ -9,12 +12,43 @@ export default function Meeting() {
   const [showSuccessModal, setSuccessShowModal] = useState(false)
   const [showFailModal, setFailShowModal] = useState(false)
 
+  const escrowContractAddress = '0x61D4DB7584Bf6C17bb26304489ba77626f55ecdf'
+
+  // Get the user's wallet address and status of their connection to it
+  const { address, isDisconnected } = useAccount()
+  // Get the signer instance for the connected wallet
+  const { data: signer } = useSigner()
+
   const handleSuccess = async function () {
     setSuccessShowModal(true)
+    const escrowContract = new Contract(
+      escrowContractAddress,
+      EscrowABI,
+      signer,
+    )
+
+    try {
+      const payTx = escrowContract.payTutor()
+      await payTx.wait()
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   const handleFail = async function () {
     setFailShowModal(true)
+    const escrowContract = new Contract(
+      escrowContractAddress,
+      EscrowABI,
+      signer,
+    )
+
+    try {
+      const refundTx = escrowContract.refundStudent()
+      await refundTx.wait()
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (

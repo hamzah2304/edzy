@@ -37,13 +37,13 @@ contract Escrow {
 
   function refundStudent() public {
     Tutorial memory tutorial = tutorials[tutorials.length - 1];
-    (bool s, ) = tutorial.tutee.call{ value: tutorial.cost }('');
+    (bool s, ) = payable(tutorial.tutee).call{ value: tutorial.cost }('');
     require(s);
   }
 
   function payTutor() public {
     Tutorial memory tutorial = tutorials[tutorials.length - 1];
-    (bool s, ) = tutorial.tutor.call{ value: tutorial.cost }('');
+    (bool s, ) = payable(tutorial.tutor).call{ value: tutorial.cost }('');
     require(s);
   }
 }

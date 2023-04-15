@@ -19,7 +19,7 @@ export default function CalendarModal({
   const [paid, setPaid] = useState(false)
   const [isPaying, setIsPaying] = useState(false)
 
-  const escrowContractAddress = '0x360722a8f5a60B02A5D62cE1DeA9FAF471ef6DAC'
+  const escrowContractAddress = '0x61D4DB7584Bf6C17bb26304489ba77626f55ecdf'
 
   // Get the user's wallet address and status of their connection to it
   const { address, isDisconnected } = useAccount()

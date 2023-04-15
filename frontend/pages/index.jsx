@@ -32,6 +32,7 @@ export default function Find() {
         <TutorCard
           name='Hamzah Mahmood'
           subject='Physics, Level 05 - 09'
+          description='Oxford Physics and Philosophy graduate - I try to make physics as fun as it should be!'
           price='25'
         />
         <br></br>

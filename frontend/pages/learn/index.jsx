@@ -23,13 +23,13 @@ export default function Learn() {
         <LessonCard
           subject='English, Level 02'
           description='For beginners who have completed levels 0 and 1.'
-          completion='50%'
+          completion='50% complete'
         />
         <br />
         <LessonCard
           subject='Physics, Level 05'
           description='For intermediate learners who have completed levels 0-4.'
-          completion='0%'
+          completion='0% complete'
         />
         <br></br>
       </main>

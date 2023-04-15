@@ -674,8 +674,8 @@
       ]
     },
     "/Users/hamzahmahmood/Downloads/ETHTokyo/edzy/backend/contracts/Escrow.sol": {
-      "lastModificationDate": 1681583818768,
-      "contentHash": "4dc61506e3fd77a66f01357cec390a4a",
+      "lastModificationDate": 1681594784663,
+      "contentHash": "639c7138706f831edc8deb4eef9acca5",
       "sourceName": "contracts/Escrow.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -707,68 +707,6 @@
       "artifacts": [
         "Escrow"
       ]
-    },
-    "/Users/hamzahmahmood/Downloads/ETHTokyo/edzy/backend/contracts/NFTMint.sol": {
-      "lastModificationDate": 1681576288704,
-      "contentHash": "eafdcb11accb260c0dc27b3ad7dd6847",
-      "sourceName": "contracts/NFTMint.sol",
-      "solcConfig": {
-        "version": "0.8.9",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [],
-      "artifacts": []
-    },
-    "/Users/hamzahmahmood/Downloads/ETHTokyo/edzy/backend/contracts/TokenGating.sol": {
-      "lastModificationDate": 1681576288703,
-      "contentHash": "24c9762523b85cfb5e54d066355ae308",
-      "sourceName": "contracts/TokenGating.sol",
-      "solcConfig": {
-        "version": "0.8.9",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [],
-      "artifacts": []
     }
   }
 }
