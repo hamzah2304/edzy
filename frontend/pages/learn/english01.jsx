@@ -1,4 +1,4 @@
-// This page displays the Engglish 01 demo course
+// This page displays the English 01 demo course
 
 import styles from '../../styles/Find.module.css'
 import FindLesson from '../../components/FindLesson'
