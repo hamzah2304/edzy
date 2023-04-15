@@ -5,7 +5,7 @@ import FindLesson from '../../components/FindLesson'
 import LessonCard from '../../components/LessonCard'
 //import CompleteEng from '../../components/CompleteEngOld'
 import CompleteEng from '../../components/CompleteEng'
-import NftMinter from '../../components/nftMinter'
+import NftMinter from '../../components/NftMinter'
 import English01ABI from '../../contracts_abi/English01ABI.json'
 
 export default function English() {
